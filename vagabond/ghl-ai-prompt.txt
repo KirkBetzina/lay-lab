@@ -1,0 +1,77 @@
+# GHL AI Page Builder Prompt - Vagabond Sales Page
+
+Copy and paste this entire prompt into your GoHighLevel AI Page Builder:
+
+---
+
+**Role:** Expert Conversion Copywriter & Landing Page Optimizer
+
+**Context:** You're optimizing a sales page for "Vagabond" — a 7-day identity transformation program for men. The offer is $27 for the initial program, targeting men who want to rebuild their discipline, identity, and mobility.
+
+**Current Problems (must fix):**
+1. No testimonials on the page
+2. No guarantee on the $27 page
+3. Bonus stack destroys positioning (expat bonuses confuse the core offer)
+4. Headline is too vague
+5. Founder story placed too late (needs to be near top)
+6. Identity Thermostat concept not explained
+7. No urgency or scarcity
+
+**Required Structure (in order):**
+
+1. **HEADLINE** (replacing current):
+   "The Proof Loop That Rewrites Who You Are — Not Another Fitness Program"
+
+2. **SUB-HEADLINE**:
+   "Take Action → Record Proof → Watch Your Identity Change. No motivation required — just evidence."
+
+3. **PROBLEM AGITATION**:
+   Twist the knife harder. Include: "You've started and quit so many times you've stopped believing anything will stick." Add specific shame about failed attempts.
+
+4. **FOUNDAR STORY** (move to top, right after problem):
+   "I was 300 lbs. Drinking myself numb. Eating garbage. Pretending I still had discipline. I wasn't... 90 days later, I was a different man. Not because I felt different — because I had proof I'd done the work."
+
+5. **THE MECHANISM**:
+   Explain the Identity Thermostat: "Most programs try to change how you think first. We do it backwards. Act first, log the proof, let identity follow the evidence."
+
+6. **OFFER** (specific bullet points):
+   - 20-Minute Mobility Workout
+   - The Proof-Logging System
+   - Daily Direction Drills
+   - Identity Anchors
+   - Vagabond Recovery Protocol
+   - Bad-Day Mindset Guide
+   - Private Community Access
+
+7. **BONUSES** (replace expat stack with these):
+   - The Recovery Protocol ($47 value)
+   - The Bad-Day Mindset Guide ($37 value)
+   - Identity Thermostat Workbook ($67 value)
+   - Private Community Access ($97 value)
+   - Total: $248 — Yours for $27
+
+8. **SOCIAL PROOF**:
+   Use Kirk's result: "I lost 40 lbs in 160 days while building this system."
+
+9. **GUARANTEE**:
+   "Complete all 7 days. Log your proof. If you don't feel a real shift — email me, no questions, full refund."
+
+10. **CTA**:
+    Add real scarcity: "This offer won't last at $27 forever. Once I build testimonials, the price goes up."
+
+11. **FAQ** (expand answers):
+    - "What if I'm out of shape?" → 2-3 sentences explaining it's built for beginners
+    - "I've tried programs before and quit" → Address the "quit before" objection directly
+    - "How is this different from YouTube?" → Explain the proof-logging system
+
+**Design Guidelines:**
+- Use dark, masculine color scheme (black, dark gray, accent orange)
+- Minimal graphics — keep it gritty and grounded
+- Short paragraphs, punchy sentences
+- No "THE BETTER WAY" ticker graphics — remove them
+
+**Tone:** Masculine, grounded, no hype. Direct and practical.
+
+---
+
+Execute this restructure and show me the result.

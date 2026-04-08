@@ -1,0 +1,113 @@
+# Bonus Stack Restructuring - Vagabond 7-Day
+
+---
+
+## The Problem
+
+Your current bonuses:
+1. Vagabond Commons (learning + private group)
+2. The Vagabond Mindset
+3. Living on $20/Day Anywhere
+4. Dating Abroad for Men
+5. Digital Work on the Road
+
+**Why it kills conversion:**
+- Core offer = 7-day fitness/identity reset
+- Bonuses = expat lifestyle starter kit
+- Prospect confusion: "Is this a fitness program or a travel program?"
+- Signals scope creep — buyer thinks "this guy is scattering his focus, how good can the main product be?"
+
+---
+
+## The Fix: Two Paths
+
+### Path A: Keep It Simple (Core Product Only)
+
+Remove the expat bonuses entirely from the main page. Replace with bonuses that serve the core promise (fitness + identity):
+
+**New Bonus Stack:**
+
+1. **The Recovery Protocol** — 15-minute mobility routine for guys who've sit all day. No equipment, hotel-room friendly. (fits mobility/nomad lifestyle actually)
+
+2. **The Bad-Day Mindset Guide** — What to do when motivation crashes. One-page PDF with the mental framework for pushing through when you want to quit. (fits identity shift)
+
+3. **The Identity Thermostat Workbook** — Fill-in-the-blanks system for tracking your daily proof. Makes the logging mechanic tangible. (your unique mechanism)
+
+4. **Private Community Access** — Group for accountability. Even just "ask me questions directly" counts. (fits accountability gap from problem section)
+
+**Why this works:**
+- Every bonus connects directly to completing the 7-day program
+- No confusion about what the product is
+- The $20/day, dating, digital work stuff can exist — but as an UPSELL later, not on the landing page
+
+---
+
+### Path B: Two-Tier Offer (Main + Upsell)
+
+This is better long-term if you want to build a "Vagabond Lifestyle" brand:
+
+**Tier 1 — The Core Program ($27):**
+- 7-Day Mobility Protocol
+- Proof-Logging System
+- Identity Thermostat Framework
+- Recovery Protocol
+- Bad-Day Mindset Guide
+
+**Tier 2 — Vagabond Lifestyle Bundle (Upsell at $47 or $67):**
+- Living on $20/Day Anywhere
+- Dating Abroad for Men
+- Digital Work on the Road
+- Vagabond Commons (full access)
+
+**How to present:**
+On the page, show Tier 1 clearly. Then at checkout or as a "one-time offer" after purchase, present Tier 2.
+
+The messaging: "You've got the foundation. Now here's the full Vagabond lifestyle if you want to take it on the road."
+
+---
+
+## Recommended Approach
+
+For right now — **Path A** is fastest to implement:
+
+1. Strip out the expat bonuses from the landing page
+2. Replace with the 4 fitness/identity bonuses above
+3. Run the $27 offer clean
+4. Later, if you want to build the expat brand, create a separate page and funnel for that
+
+This keeps your positioning tight: **7-day fitness + identity reset for men who want to rebuild themselves.**
+
+---
+
+## Revised Bonus Copy (use this on the page)
+
+Copy-paste version:
+
+> **What's Included:**
+> 
+> ✅ **The 7-Day Mobility Protocol** — 20-minute daily workouts designed for hotel rooms, apartments, or outdoors. No equipment needed. Just show up and move.
+> 
+> ✅ **The Proof-Logging System** — The loop that forces identity change. Take action → record proof → see it → repeat. No more hoping for change. You build evidence.
+> 
+> ✅ **The Identity Thermostat Workbook** — Your fill-in guide for tracking daily shifts. Makes the system tangible and trackable.
+> 
+> ✅ **The Recovery Protocol** — 15-minute mobility routine for guys who've sat all day. Perfect for travel, tight schedules, or hotel living.
+> 
+> ✅ **The Bad-Day Mindset Guide** — What to do when motivation tanks. One-page PDF with the mental framework for pushing through.
+> 
+> ✅ **Private Community Access** — Direct access to the inner circle for accountability and Q&A.
+
+**That's it. No fluff. No travel guide. Just what you need to rebuild yourself in 7 days.**
+
+---
+
+## Bonus: Alternative Bonus Stack (if you want to keep one expat element)
+
+Pick ONE expat bonus that fits the "mobility" theme best:
+
+- **Living on $20/Day Anywhere** — ties to the nomad/mobile lifestyle
+- Keep this one, drop the other two
+
+That way the page still signals "this is for guys who travel or want to" without scattering focus.
+
+Total bonus count: 5 instead of 6. Cleaner.
