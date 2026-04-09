@@ -9,10 +9,8 @@
 | 12:00 PM | X (Twitter) | 54722 | "The 80/20 Rule for Cash-Flow: automate 20% of income into a high-yield account 💰" |
 | 6:00 PM | TikTok | 54721 | Hook: "Got spare change? Here's how to make it work for you" - Quick cuts, micro-investing visual - CTA: Save + follow |
 
-## Assets Ready (attached to drafts)
-- `post-1.png` – Horse logo centered, teal accent bar (Twitter carousel cover)
-- `post-2.png` – Smaller horse, teal circle accent (Twitter static)
-- `post-3.png` – Horse with teal border (TikTok thumbnail)
+## Assets Ready
+- NOTE: Images to be generated separately by Kirk using AI
 
 ## Content Source
 Week 3 "Smart Money Moves" - Post 1 Carousel concept
@@ -31,19 +29,19 @@ Week 3 "Smart Money Moves" - Post 1 Carousel concept
 curl -X POST "https://api.post-bridge.com/v1/posts" \
   -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
   -H "Content-Type: application/json" \
-  -d '{"caption": "Turn $5 into $50 – real-world micro-investing tricks 🧵", "social_accounts": [54722], "media": ["https://example.com/post-1.png"]}'
+  -d '{"caption": "Turn $5 into $50 – real-world micro-investing tricks 🧵", "social_accounts": [54722]}'
 
 # Midday X post  
 curl -X POST "https://api.post-bridge.com/v1/posts" \
   -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
   -H "Content-Type: application/json" \
-  -d '{"caption": "The 80/20 Rule for Cash-Flow: automate 20% of income into a high-yield account 💰", "social_accounts": [54722], "media": ["https://example.com/post-2.png"]}'
+  -d '{"caption": "The 80/20 Rule for Cash-Flow: automate 20% of income into a high-yield account 💰", "social_accounts": [54722]}'
 
 # Evening TikTok post
 curl -X POST "https://api.post-bridge.com/v1/posts" \
   -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
   -H "Content-Type: application/json" \
-  -d '{"caption": "Got spare change? Here'\''s how to make it work for you. Quick cuts, micro-investing. Save + follow", "social_accounts": [54721], "media": ["https://example.com/post-3.png"]}'
+  -d '{"caption": "Got spare change? Here'\''s how to make it work for you. Quick cuts, micro-investing. Save + follow", "social_accounts": [54721]}'
 ```
 
 ## Review Checklist
