@@ -51,6 +51,17 @@ Active → slump → Sandbox → proves S4 → Ready Bench → Active
 | S1 (5-bar) | 10% of S1 pool | 1.5% SL |
 | S2 (LDO) | 10% of S2 pool | 1.5% SL |
 
+### S3 Timeframes
+- **Primary (Main):** 5m — highest PF (2-5), best pairs: XLM, APT, ADA, BTC, AVAX, SOL
+- **Secondary (Trader's Discretion):** 15m — lower PF but more trades, requires larger capital for meaningful position size
+
+### Recommended Pairs (S3 5m)
+| Priority | Pairs | Notes |
+|----------|-------|-------|
+| Tier 1 | XLM, APT, ADA | PF 3-5 |
+| Tier 2 | BTC, AVAX, SOL | PF 2-3 |
+| Tier 3 | MANA, DOT | PF 1.5-2 | |
+
 ### Leverage Options
 - **Trader's choice:** 2x or 3x leverage
 - 2x = safer, $95 → $1,073 in 12 weeks
