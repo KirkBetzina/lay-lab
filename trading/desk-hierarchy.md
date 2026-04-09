@@ -51,6 +51,12 @@ Active → slump → Sandbox → proves S4 → Ready Bench → Active
 | S1 (5-bar) | 10% of S1 pool | 1.5% SL |
 | S2 (LDO) | 10% of S2 pool | 1.5% SL |
 
+### Leverage Options
+- **Trader's choice:** 2x or 3x leverage
+- 2x = safer, $95 → $1,073 in 12 weeks
+- 3x = higher risk/reward, $95 → $3,613 in 12 weeks
+- 5x+ = NOT recommended (78%+ liquidation rate)
+
 ### Rules
 1. **S1 gets first right** to capital at start of each week
 2. **S3 pool is capped** - once depleted, no new S3 trades until reset
