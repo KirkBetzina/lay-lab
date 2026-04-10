@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagabond Trading Desk</title>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --bg-hover: #21262d;
+            --border: #30363d;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-blue: #58a6ff;
+            --accent-orange: #d29922;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        
+        .header .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .card h3 {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        
+        .metric {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .metric.green { color: var(--accent-green); }
+        .metric.red { color: var(--accent-red); }
+        .metric.orange { color: var(--accent-orange); }
+        .metric.blue { color: var(--accent-blue); }
+        
+        .metric span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+        
+        .card.large {
+            grid-column: span 2;
+        }
+        
+        .card.wide {
+            grid-column: span 4;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            font-size: 13px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .badge.live { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+        .badge.bench { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); }
+        .badge.sandbox { background: rgba(210, 153, 34, 0.15); color: var(--accent-orange); }
+        
+        .trader-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .trader-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-hover);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: var(--bg-hover);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .pf-score {
+            font-weight: 600;
+        }
+        
+        .pf-score.high { color: var(--accent-green); }
+        .pf-score.medium { color: var(--accent-orange); }
+        .pf-score.low { color: var(--accent-red); }
+        
+        .allocation-bar {
+            display: flex;
+            height: 24px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        
+        .allocation-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .segment-s3 { background: var(--accent-blue); width: 60%; }
+        .segment-s1 { background: var(--accent-green); width: 20%; }
+        .segment-s2 { background: var(--accent-orange); width: 20%; }
+        
+        .pair-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: var(--bg-hover);
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 2px;
+        }
+        
+        .pair-tag.hot {
+            background: rgba(63, 185, 80, 0.2);
+            border: 1px solid var(--accent-green);
+        }
+        
+        .last-updated {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 Vagabond Trading Desk</h1>
+        <div class="status">
+            <div class="status-dot"></div>
+            <span>Live · April 9, 2026</span>
+        </div>
+    </div>
+    
+    <!-- Top Metrics -->
+    <div class="grid">
+        <div class="card">
+            <h3>Total Equity</h3>
+            <div class="metric">$2,847<span>+12.4%</span></div>
+        </div>
+        <div class="card">
+            <h3>Today's P&L</h3>
+            <div class="metric green">+$127.40</div>
+        </div>
+        <div class="card">
+            <h3>Win Rate</h3>
+            <div class="metric blue">67.3%</div>
+        </div>
+        <div class="card">
+            <h3>Open Positions</h3>
+            <div class="metric orange">4</div>
+        </div>
+    </div>
+    
+    <!-- Trader Roster & Allocation -->
+    <div class="grid">
+        <div class="card wide">
+            <h3>Trader Roster</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trader</th>
+                        <th>Strategy</th>
+                        <th>Status</th>
+                        <th>Today's P&L</th>
+                        <th>Win Rate</th>
+                    </tr>
+                </thead>
+                <tbody id="trader-table">
+                    <tr>
+                        <td>
+                            <div class="trader-row">
+                                <div class="trader-avatar">M</div>
+                                <div>Marcus</div>
+                            </div>
+                        </td>
+                        <td>S1 (5-bar)</td>
+                        <td><span class="badge live">● Live</span></td>
+                        <td class="green">+$45.20</td>
+                        <td>62%</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="trader-row">
+                                <div class="trader-avatar">D</div>
+                                <div>Diane</div>
+                            </div>
+                        </td>
+                        <td>S3 (3-bar)</td>
+                        <td><span class="badge live">● Live</span></td>
+                        <td class="green">+$82.15</td>
+                        <td>71%</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="trader-row">
+                                <div class="trader-avatar">C</div>
+                                <div>Chen</div>
+                            </div>
+                        </td>
+                        <td>S1</td>
+                        <td><span class="badge bench">○ On Deck</span></td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="trader-row">
+                                <div class="trader-avatar">R</div>
+                                <div>Reyes</div>
+                            </div>
+                        </td>
+                        <td>S3</td>
+                        <td><span class="badge bench">○ On Deck</span></td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="trader-row">
+                                <div class="trader-avatar">K</div>
+                                <div>Kira</div>
+                            </div>
+                        </td>
+                        <td>S4</td>
+                        <td><span class="badge sandbox">◐ Training</span></td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Allocation & Top Performers -->
+    <div class="grid">
+        <div class="card">
+            <h3>Capital Allocation</h3>
+            <div class="allocation-bar">
+                <div class="allocation-segment segment-s3">60%</div>
+                <div class="allocation-segment segment-s1">20%</div>
+                <div class="allocation-segment segment-s2">20%</div>
+            </div>
+            <div style="margin-top: 16px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span style="font-size: 12px; color: var(--text-muted);">S3 (Growth)</span>
+                    <span style="font-size: 12px; font-weight: 600;">60%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%; background: var(--accent-blue);"></div>
+                </div>
+            </div>
+            <div style="margin-top: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span style="font-size: 12px; color: var(--text-muted);">S1 (Supplement)</span>
+                    <span style="font-size: 12px; font-weight: 600;">20%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%; background: var(--accent-green);"></div>
+                </div>
+            </div>
+            <div style="margin-top: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span style="font-size: 12px; color: var(--text-muted);">S2 (LDO Focus)</span>
+                    <span style="font-size: 12px; font-weight: 600;">20%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%; background: var(--accent-orange);"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Top Performers (PF ≥ 1.5)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pair</th>
+                        <th>TF</th>
+                        <th>Strategy</th>
+                        <th>PF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SOL</td>
+                        <td>5m</td>
+                        <td>S6</td>
+                        <td class="pf-score high">6.37</td>
+                    </tr>
+                    <tr>
+                        <td>DOGE</td>
+                        <td>1h</td>
+                        <td>S6</td>
+                        <td class="pf-score high">3.69</td>
+                    </tr>
+                    <tr>
+                        <td>XMR</td>
+                        <td>1h</td>
+                        <td>S3</td>
+                        <td class="pf-score high">2.29</td>
+                    </tr>
+                    <tr>
+                        <td>DOT</td>
+                        <td>1h</td>
+                        <td>S6</td>
+                        <td class="pf-score high">1.98</td>
+                    </tr>
+                    <tr>
+                        <td>BTC</td>
+                        <td>15m</td>
+                        <td>S6</td>
+                        <td class="pf-score high">1.81</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Active Positions -->
+    <div class="grid">
+        <div class="card wide">
+            <h3>Active Positions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pair</th>
+                        <th>Direction</th>
+                        <th>Entry Price</th>
+                        <th>Current</th>
+                        <th>P&L</th>
+                        <th>Strategy</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="positions-table">
+                    <tr>
+                        <td>SOL/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>142.35</td>
+                        <td>143.82</td>
+                        <td class="green">+1.03%</td>
+                        <td>S6</td>
+                        <td>5m ago</td>
+                    </tr>
+                    <tr>
+                        <td>XMR/USDT</td>
+                        <td><span class="badge" style="background: rgba(248, 81, 73, 0.15); color: var(--accent-red);">SHORT</span></td>
+                        <td>118.40</td>
+                        <td>117.85</td>
+                        <td class="green">+0.46%</td>
+                        <td>S3</td>
+                        <td>12m ago</td>
+                    </tr>
+                    <tr>
+                        <td>BTC/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>71,180</td>
+                        <td>71,095</td>
+                        <td class="red">-0.12%</td>
+                        <td>S6</td>
+                        <td>28m ago</td>
+                    </tr>
+                    <tr>
+                        <td>ADA/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>0.452</td>
+                        <td>0.458</td>
+                        <td class="green">+1.33%</td>
+                        <td>S3</td>
+                        <td>1h ago</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Pairs by Strategy -->
+    <div class="grid">
+        <div class="card">
+            <h3>S1 Pairs (30)</h3>
+            <div id="s1-pairs" style="max-height: 150px; overflow-y: auto;">
+                <span class="pair-tag">BTC</span>
+                <span class="pair-tag">ETH</span>
+                <span class="pair-tag">SOL</span>
+                <span class="pair-tag">XRP</span>
+                <span class="pair-tag">DOGE</span>
+                <span class="pair-tag">AVAX</span>
+                <span class="pair-tag">ADA</span>
+                <span class="pair-tag">DOT</span>
+                <span class="pair-tag">NEAR</span>
+                <span class="pair-tag">LINK</span>
+                <span class="pair-tag">BNB</span>
+                <span class="pair-tag">UNI</span>
+                <span class="pair-tag">LTC</span>
+                <span class="pair-tag">ATOM</span>
+                <span class="pair-tag">XLM</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>S2 Pairs (19)</h3>
+            <div id="s2-pairs" style="max-height: 150px; overflow-y: auto;">
+                <span class="pair-tag hot">LDO</span>
+                <span class="pair-tag">AERO</span>
+                <span class="pair-tag">FARTCOIN</span>
+                <span class="pair-tag">ZEC</span>
+                <span class="pair-tag">ICP</span>
+                <span class="pair-tag">ARB</span>
+                <span class="pair-tag">XRP</span>
+                <span class="pair-tag">OP</span>
+                <span class="pair-tag">FIL</span>
+                <span class="pair-tag">ETH</span>
+                <span class="pair-tag">NEAR</span>
+                <span class="pair-tag">DOT</span>
+                <span class="pair-tag">BTC</span>
+                <span class="pair-tag">LTC</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>S3 Pairs (15)</h3>
+            <div id="s3-pairs" style="max-height: 150px; overflow-y: auto;">
+                <span class="pair-tag">HBAR</span>
+                <span class="pair-tag">NEAR</span>
+                <span class="pair-tag">ADA</span>
+                <span class="pair-tag">ICP</span>
+                <span class="pair-tag">CRV</span>
+                <span class="pair-tag">ETH</span>
+                <span class="pair-tag">ZEC</span>
+                <span class="pair-tag">AAVE</span>
+                <span class="pair-tag">SUI</span>
+                <span class="pair-tag">LTC</span>
+                <span class="pair-tag hot">LDO</span>
+                <span class="pair-tag">UNI</span>
+                <span class="pair-tag">XMR</span>
+                <span class="pair-tag">SOL</span>
+                <span class="pair-tag">LINK</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>S6 Pairs (Reserve)</h3>
+            <div id="s6-pairs" style="max-height: 150px; overflow-y: auto;">
+                <span class="pair-tag hot">SOL</span>
+                <span class="pair-tag hot">DOGE</span>
+                <span class="pair-tag hot">DOT</span>
+                <span class="pair-tag hot">BTC</span>
+                <span class="pair-tag hot">LTC</span>
+                <span class="pair-tag">ETH</span>
+                <span class="pair-tag">XMR</span>
+                <span class="pair-tag">ADA</span>
+                <span class="pair-tag">XLM</span>
+                <span class="pair-tag">AVAX</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Trades -->
+    <div class="grid">
+        <div class="card wide">
+            <h3>Recent Trades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Trader</th>
+                        <th>Pair</th>
+                        <th>Direction</th>
+                        <th>Entry</th>
+                        <th>Exit</th>
+                        <th>P&L</th>
+                        <th>Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12:34</td>
+                        <td>Diane</td>
+                        <td>SOL/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>142.35</td>
+                        <td>143.82</td>
+                        <td class="green">+$12.40</td>
+                        <td>S6</td>
+                    </tr>
+                    <tr>
+                        <td>12:28</td>
+                        <td>Marcus</td>
+                        <td>BTC/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>71,180</td>
+                        <td>71,450</td>
+                        <td class="green">+$18.90</td>
+                        <td>S1</td>
+                    </tr>
+                    <tr>
+                        <td>11:52</td>
+                        <td>Diane</td>
+                        <td>XMR/USDT</td>
+                        <td><span class="badge" style="background: rgba(248, 81, 73, 0.15); color: var(--accent-red);">SHORT</span></td>
+                        <td>118.40</td>
+                        <td>117.85</td>
+                        <td class="green">+$5.50</td>
+                        <td>S3</td>
+                    </tr>
+                    <tr>
+                        <td>11:45</td>
+                        <td>Marcus</td>
+                        <td>ETH/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>2,185</td>
+                        <td>2,192</td>
+                        <td class="green">+$8.20</td>
+                        <td>S1</td>
+                    </tr>
+                    <tr>
+                        <td>11:22</td>
+                        <td>Diane</td>
+                        <td>ADA/USDT</td>
+                        <td><span class="badge" style="background: rgba(63, 185, 80, 0.15); color: var(--accent-green);">LONG</span></td>
+                        <td>0.452</td>
+                        <td>0.458</td>
+                        <td class="green">+$6.60</td>
+                        <td>S3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="last-updated">
+        Last updated: 12:54 PM UTC · Data refresh: Real-time
+    </div>
+</body>
+</html>
