@@ -23,6 +23,7 @@
 - Accent bar: #038 (teal) on left side
 - Icon: Horse racing silhouette (teal)
 - Text: Segoe UI, dark gray #333
+- **Image Asset:** `assets/images/day-1-reel-2.jpg`
 
 ### Post 1 (Thread Opener)
 ```
@@ -80,6 +81,7 @@ Follow along — let's learn together.
 - Quick cut: Horse racing footage
 - Text overlay: #038 teal
 - End card: #F9FAFB with white CTA button
+- **Thumbnail Image:** `assets/images/day-1-reel-1.png`
 
 ### Script
 ```
