@@ -134,8 +134,8 @@ Spread posts. No back-to-back. 2-3 total per day.
 
 **Core message:** "Learn how lay betting works, understand the math, make informed decisions"
 
-**Client:** Hendo (AI Banker Bets affiliate)  
-**Landing page:** `hendo4469--twelve-teams.thrivecart.com/ai-banker-bets/`  
+**Client:** Hendo (The Lay Lab Bets affiliate)  
+**Landing page:** `hendo4469--twelve-teams.thrivecart.com/the-lay-lab/`  
 **Placement:** Bio links only. Never in post captions.
 
 **Soft CTA examples:**

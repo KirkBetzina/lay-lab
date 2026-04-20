@@ -1,7 +1,7 @@
 # The Lay Lab - Social & Affiliate
 
 ## Affiliate Link
-https://hendo4469--twelve-teams.thrivecart.com/ai-banker-bets/
+https://hendo4469--twelve-teams.thrivecart.com/the-lay-lab/
 
 ## Goal
 - Build organic social following (X + TikTok)

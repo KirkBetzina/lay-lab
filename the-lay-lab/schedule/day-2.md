@@ -27,19 +27,19 @@ Week 3 "Smart Money Moves" - Post 1 Carousel concept
 ```bash
 # Morning X post
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
+  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
   -H "Content-Type: application/json" \
   -d '{"caption": "Turn $5 into $50 – real-world micro-investing tricks 🧵", "social_accounts": [54722]}'
 
 # Midday X post  
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
+  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
   -H "Content-Type: application/json" \
   -d '{"caption": "The 80/20 Rule for Cash-Flow: automate 20% of income into a high-yield account 💰", "social_accounts": [54722]}'
 
 # Evening TikTok post
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_65nzEW6aN4WPNXq4ysNL5c" \
+  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
   -H "Content-Type: application/json" \
   -d '{"caption": "Got spare change? Here'\''s how to make it work for you. Quick cuts, micro-investing. Save + follow", "social_accounts": [54721]}'
 ```
