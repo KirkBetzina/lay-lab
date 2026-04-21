@@ -22,19 +22,19 @@
 ```bash
 # Morning X post
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
+  -H "Authorization: Bearer pb_live_5xiQ9715b2BEYruE1hn9iQ" \
   -H "Content-Type: application/json" \
   -d '{"caption": "The 3 betting mistakes costing you money 🧵", "social_accounts": [54722]}'
 
 # Midday X post  
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
+  -H "Authorization: Bearer pb_live_5xiQ9715b2BEYruE1hn9iQ" \
   -H "Content-Type: application/json" \
-  -d '{"caption": "Bankroll management isn't sexy. But it's the difference between lasting 3 months and 3 years.", "social_accounts": [54722]}'
+  -d '{"caption": "Bankroll management isn'\''t sexy. But it'\''s the difference between lasting 3 months and 3 years.", "social_accounts": [54722]}'
 
 # Evening TikTok post
 curl -X POST "https://api.post-bridge.com/v1/posts" \
-  -H "Authorization: Bearer pb_live_5qSLSAGX9vxWEtYqqxRhvz" \
+  -H "Authorization: Bearer pb_live_5xiQ9715b2BEYruE1hn9iQ" \
   -H "Content-Type: application/json" \
   -d '{"caption": "The 3 mistakes killing your betting bank. Quick cuts, educational. Save + follow", "social_accounts": [54721]}'
 ```
